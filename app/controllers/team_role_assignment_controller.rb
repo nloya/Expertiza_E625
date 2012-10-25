@@ -1,0 +1,3 @@
+class TeamRoleAssignmentController < ApplicationController
+
+end

@@ -1,0 +1,5 @@
+
+<% if !@assignment.selfreview_questionnaire_id.nil? %>
+    Self Review <%= link_to 'Begin', {:controller => 'submitted_content', :action => 'view_selfreview', :id => @assignment.selfreview_questionnaire_id }%>
+<% end %>
+

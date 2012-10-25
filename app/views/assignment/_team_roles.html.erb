@@ -1,0 +1,29 @@
+
+
+<% if session[:user].role.name == "Teaching Assistant"
+     user_id = Ta.get_my_instructor(session[:user].id)
+   else
+     user_id = session[:user].id
+   end %>
+
+<br>
+
+<table id="team_member_roles" <%if !@assignment.team_assignment %>style="display:none"<% end %>>
+<tr >
+  <td width="39%"> Team Member Roles: </td>
+  <td style="padding: 15px;">
+    <% selected = @role_present.first %>
+    <select multiple="multiple" style="width:250px" name="team_roles[]" >
+      <option value="0" <%if selected.nil?%>selected="yes"<%end%>>--None--</option>
+      <% @role_present.each{
+              | rp | %>
+          <option value = "<%=rp.id %>" <% if selected != nil and rp.id == selected.id%>selected="yes"<%end%>><%= rp.role_names %></option>
+      <% } %>
+    </select>
+  </td>
+
+</tr>
+
+ </table>
+
+<br>
